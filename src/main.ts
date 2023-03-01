@@ -20,6 +20,9 @@ import { ValidationPipe } from '@nestjs/common';
 // npm i graphql-subscriptions
 // nest g module pub-sub
 
+// Baching and Caching as well as N+1 problem solver:
+// npm i dataloader
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
