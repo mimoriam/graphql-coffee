@@ -14,6 +14,9 @@ import { ValidationPipe } from '@nestjs/common';
 
 // npm i @nestjs/typeorm typeorm pg
 
+// For custom scalars:
+// npm i graphql-scalars
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
