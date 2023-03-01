@@ -1,10 +1,10 @@
 import {
-  Column,
+  Column, CreateDateColumn,
   Entity,
   JoinTable,
   ManyToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+  PrimaryGeneratedColumn
+} from "typeorm";
 import * as GraphQLTypes from '../../graphql';
 import { Flavor } from './flavor.entity';
 
@@ -22,4 +22,7 @@ export class Coffee implements GraphQLTypes.Coffee {
   @ManyToMany(() => Flavor, (flavor) => flavor.coffees, { cascade: true })
   @JoinTable()
   flavors: Flavor[];
+
+  @CreateDateColumn()
+  createdAt: Date
 }

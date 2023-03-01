@@ -1,8 +1,11 @@
+scalar Date
+
 type Coffee {
   id: ID!
   name: String!
   brand: String!
   flavors: [Flavor!]!
+  createdAt: Date!
 }
 
 type Flavor {

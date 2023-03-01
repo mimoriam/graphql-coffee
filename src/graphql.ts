@@ -25,6 +25,7 @@ export class Coffee {
     name: string;
     brand: string;
     flavors: Flavor[];
+    createdAt: Date;
 }
 
 export class Flavor {
