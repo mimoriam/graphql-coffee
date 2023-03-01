@@ -4,6 +4,10 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe } from '@nestjs/common';
 
 // npm i @nestjs/graphql graphql @nestjs/apollo apollo-server-express ts-morph
+
+// For Apollo v4 (when Stable):
+// npm i @nestjs/graphql graphql @nestjs/apollo @apollo/server ts-morph
+
 // npm i class-validator class-transformer
 
 // npx ts-node src/generate-types
@@ -11,7 +15,11 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  // app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      forbidUnknownValues: false,
+    }),
+  );
 
   try {
     await app.listen(3000);
