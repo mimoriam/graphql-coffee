@@ -12,6 +12,8 @@ import { ValidationPipe } from '@nestjs/common';
 
 // npx ts-node src/generate-types
 
+// npm i @nestjs/typeorm typeorm pg
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
