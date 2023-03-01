@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import * as GraphQLTypes from '../graphql';
 import { Repository } from 'typeorm';
 import { Coffee } from './entities/coffee.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserInputError } from 'apollo-server-express';
+import { CreateCoffeeInputDto } from "./dtos/create-coffee.input.dto";
+import { UpdateCoffeeInputDto } from "./dtos/update-coffee.input.dto";
 
 @Injectable()
 export class CoffeesService {
@@ -26,13 +27,13 @@ export class CoffeesService {
     return coffee;
   }
 
-  async create(createCoffeeInput: GraphQLTypes.CreateCoffeeInput) {
+  async create(createCoffeeInput: CreateCoffeeInputDto) {
     const coffee = await this.coffeesRepository.create(createCoffeeInput);
 
     return this.coffeesRepository.save(coffee);
   }
 
-  async update(id: number, updateCoffeeInput: GraphQLTypes.UpdateCoffeeInput) {
+  async update(id: number, updateCoffeeInput: UpdateCoffeeInputDto) {
     const coffee = await this.coffeesRepository.preload({
       id,
       ...updateCoffeeInput,
