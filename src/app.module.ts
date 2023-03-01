@@ -5,6 +5,7 @@ import { CoffeesModule } from './coffees/coffees.module';
 // import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { PubSubModule } from './pub-sub/pub-sub.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       }),
     }),
     CoffeesModule,
+    PubSubModule,
   ],
 })
 export class AppModule {}

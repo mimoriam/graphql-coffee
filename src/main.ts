@@ -17,6 +17,9 @@ import { ValidationPipe } from '@nestjs/common';
 // For custom scalars:
 // npm i graphql-scalars
 
+// npm i graphql-subscriptions
+// nest g module pub-sub
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
