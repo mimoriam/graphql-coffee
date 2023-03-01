@@ -21,7 +21,7 @@ export class Coffee implements GraphQLTypes.Coffee {
 
   @ManyToMany(() => Flavor, (flavor) => flavor.coffees, { cascade: true })
   @JoinTable()
-  flavors: Flavor[];
+  flavors?: Flavor[];
 
   @CreateDateColumn()
   createdAt: Date

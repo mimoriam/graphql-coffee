@@ -18,7 +18,11 @@ export class CoffeesService {
   ) {}
 
   async findAll() {
-    return this.coffeesRepository.find();
+    return this.coffeesRepository.find({
+      relations: {
+        flavors: true,
+      },
+    });
   }
 
   async findOne(id: number) {
